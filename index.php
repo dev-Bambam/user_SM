@@ -1,4 +1,6 @@
 <?php
+require 'Database.php';
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = isset($_POST['name']) ? $_POST['name'] : '';
     $email = isset($_POST['email']) ? $_POST['email'] : '';
@@ -7,6 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (empty($name) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($password)) {
         echo 'Please enter valid data';
     } else {
-        echo "Hello $name, Thank you for signing up!";
+        // store user data in database
+        $sql = "INSERT INTO users (name, email, password) values(:name, :email, :password)";
+        $q = $pdo->prepare($sql);
+        $q->execute(['name' => $name, 'email' => $email, 'password' => $password]);
     }
 }
