@@ -4,6 +4,12 @@ $user = "root";
 $pass = "";
 $db = "bambam";
 
-$pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+$connection = new mysqli($host, $user, $password, $db);
+
+if ($connection->connect_error) {
+    die("conection failed:" . $connection->connect_error);
+}
+
+
+$connection->close();
