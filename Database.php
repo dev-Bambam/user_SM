@@ -1,15 +1,15 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "";
+$password = "";
 $db = "bambam";
 
 
-$connection = new mysqli($host, $user, $password, $db);
+$mysqli = new mysqli($host, $user, $password, $db);
 
-if ($connection->connect_error) {
-    die("conection failed:" . $connection->connect_error);
+if ($mysqli->connect_error) {
+    die("conection failed: $mysqli->connect_error");
 }
 
 
-$connection->close();
+// $mysqli->close();
