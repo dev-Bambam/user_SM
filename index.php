@@ -20,11 +20,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 }
+// update user
 if(isset($_POST['editUser'])){
     $userId = $_POST['$id'];
     $newUserName = $_POST['$name'];
 
     $query = $mysqli->prepare("UPDATE users SET name = ? WHERE id = ?");
     $query -> bind_param("si", $newUserName, $userId);
-    
+    $query->execute();
+    $query->close();
+
+    exit();
+}
+// delete user
+if (isset($_GET['deleteUser'])){
+    $userId = $_GET['$id'];
+
+    $query = $mysqli->prepare('DELETE FROM users WHERE id = ?');
+    $query->bind_param('i', $userId);
+    $query->execute();
+    $query->close();
+    exit();
 }
