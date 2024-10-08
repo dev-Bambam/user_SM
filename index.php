@@ -20,3 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit;
     }
 }
+if(isset($_POST['editUser'])){
+    $userId = $_POST['$id'];
+    $newUserName = $_POST['$name'];
+
+    $query = $mysqli->prepare("UPDATE users SET name = ? WHERE id = ?");
+    $query -> bind_param("si", $newUserName, $userId);
+    
+}
