@@ -1,5 +1,4 @@
-<?php
-require_once 'index.php';
+<?php require  '../Database.php';
 
 // READ
 // get a specific user email or all email 

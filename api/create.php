@@ -1,5 +1,5 @@
 <?php
-require 'index.php';
+require '../Database.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // collecting the data coming from client and converting it to json and storing it in $data which will be stored as array
