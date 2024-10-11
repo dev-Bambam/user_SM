@@ -44,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     // get email
     $email = $_GET['email'] ?? null;
-
     if ($email) {
         // get single user email
         $query = "SELECT * FROM users WHERE email = :email";
