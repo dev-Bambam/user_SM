@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
     $statement->bindParam(':password', $password);
     $statement->execute();
     $count = $statement->rowCount();
-    // check if user was updated
+    // check if user was updated ==> $count > 0
     if ($count > 0) {
         // respond with success
         header('content-type: application/json', true, 200);
